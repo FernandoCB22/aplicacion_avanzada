@@ -1,0 +1,128 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+Diario de Madrid - Resultados de la Búsqueda
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='estilo.css')}}">
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-3">
+        <h1>Miembros del Proyecto</h1><br>
+
+        {% if coordinadores %}
+            <h3>Directores del Proyecto</h3><br>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th>Correo Electrónico</th>
+                        <th>Institución</th>
+                        <th>Cargo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for usuario in coordinadores %}
+                        <tr>
+                            <td>{{ usuario.nombre }}</td>
+                            <td>{{ usuario.apellidos }}</td>
+                            <td>{{ usuario.correo }}</td>
+                            <td>{{ usuario.institucion }}</td>
+                            <td>{{ usuario.cargo }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No se encontraron coordinadores.</p>
+        {% endif %}
+        <br>
+        {% if profesores %}
+            <h3>Profesores del Proyecto</h3><br>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th>Correo Electrónico</th>
+                        <th>Institución</th>
+                        <th>Cargo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for usuario in profesores %}
+                        <tr>
+                            <td>{{ usuario.nombre }}</td>
+                            <td>{{ usuario.apellidos }}</td>
+                            <td>{{ usuario.correo }}</td>
+                            <td>{{ usuario.institucion }}</td>
+                            <td>{{ usuario.cargo }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No se encontraron profesores.</p>
+        {% endif %}
+        <br>
+        {% if tutores %}
+            <h3>Tutores del Proyecto</h3><br>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th>Correo Electrónico</th>
+                        <th>Institución</th>
+                        <th>Cargo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for usuario in tutores %}
+                        <tr>
+                            <td>{{ usuario.nombre }}</td>
+                            <td>{{ usuario.apellidos }}</td>
+                            <td>{{ usuario.correo }}</td>
+                            <td>{{ usuario.institucion }}</td>
+                            <td>{{ usuario.cargo }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No se encontraron tutores.</p>
+        {% endif %}
+        <br>
+        {% if alumnos %}
+            <h3>Alumnos del Proyecto</h3><br>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th>Correo Electrónico</th>
+                        <th>Institución</th>
+                        <th>Cargo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for usuario in alumnos %}
+                        <tr>
+                            <td>{{ usuario.nombre }}</td>
+                            <td>{{ usuario.apellidos }}</td>
+                            <td>{{ usuario.correo }}</td>
+                            <td>{{ usuario.institucion }}</td>
+                            <td>{{ usuario.cargo }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No se encontraron alumnos.</p>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alta de Licencia</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h2>Alta de Licencia</h2>
+
+        <form method="POST" action="/procesar_alta_licencia">
+            <div class="form-group">
+                <label for="usuario">Selecciona un usuario:</label>
+                <select class="form-control" id="usuario" name="usuario" required>
+                    {% for usuario in usuarios %}
+                        <option value="{{ usuario.id }}">{{ usuario.nombre }} {{ usuario.apellidos }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="licencia">Selecciona una licencia:</label>
+                <select class="form-control" id="licencia" name="licencia" required>
+                    {% for licencia in licencias %}
+                        <option value="{{ licencia }}">{{ licencia }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="fecha_alta">Fecha de Alta:</label>
+                <input type="date" class="form-control" id="fecha_alta" name="fecha_alta" required>
+            </div>
+
+            <div class="form-group">
+                <label for="fecha_baja">Fecha de Baja:</label>
+                <input type="date" class="form-control" id="fecha_baja" name="fecha_baja" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Guardar Licencia</button>
+        </form>
+    </div>
+</body>
+</html>
